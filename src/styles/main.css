@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  @apply scroll-smooth;
+}
+
+body {
+  @apply bg-brand-blue-900 text-brand-gray-400;
+}
+
+@layer components {
+  .custom-container {
+    @apply max-w-5xl px-8 mx-auto;
+  }
+}
+
+@layer utilities {
+  .line-on-hover {
+    @apply relative after:content-[''] after:w-0 after:h-[1px] after:bg-current after:absolute after:bottom-0 after:left-0 hover:after:w-full after:transition-all cursor-pointer;
+  }
+}
