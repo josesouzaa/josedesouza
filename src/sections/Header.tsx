@@ -24,8 +24,8 @@ const containerVariant = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.4,
-      delayChildren: 0.2
+      duration: 0.5,
+      delayChildren: 0.5
     }
   }
 }
@@ -34,7 +34,10 @@ const itemVariant = {
   hidden: { opacity: 0, y: '-50%' },
   visible: {
     opacity: 1,
-    y: 0
+    y: 0,
+    trasition: {
+      duration: 0.5
+    }
   }
 }
 
