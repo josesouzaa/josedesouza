@@ -1,11 +1,14 @@
-import React from 'react'
+import { motion } from 'framer-motion'
 
 import Image from 'next/image'
 import Link from 'next/link'
 
 import { Menu, Transition } from '@headlessui/react'
 
+import { RiMenuFill, RiCloseFill } from 'react-icons/ri'
+
 import logo from '../../assets/logo.svg'
+import { Fragment } from 'react'
 
 const menuItens = [
   { name: 'Sobre', link: '/#about' },
@@ -15,10 +18,38 @@ const menuItens = [
   { name: 'Contato', link: '/' }
 ]
 
+const containerVariant = {
+  hidden: { opacity: 0, y: '-100%' },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.4,
+      delayChildren: 0.2
+    }
+  }
+}
+
+const itemVariant = {
+  hidden: { opacity: 0, y: '-50%' },
+  visible: {
+    opacity: 1,
+    y: 0
+  }
+}
+
 export function Header() {
   return (
-    <header className="w-full fixed z-50">
-      <div className="custom-container flex items-center justify-between">
+    <motion.header
+      variants={containerVariant}
+      initial="hidden"
+      animate="visible"
+      className="w-full fixed z-50 bg-brand-blue-800 shadow-md"
+    >
+      <motion.div
+        variants={itemVariant}
+        className="custom-container flex items-center justify-between"
+      >
         <Link href="/" passHref>
           <Image src={logo} alt="José de Souza" />
         </Link>
@@ -42,13 +73,17 @@ export function Header() {
           {({ open }) => (
             <>
               {open ? (
-                <Menu.Button className="relative z-20">Fechar</Menu.Button>
+                <Menu.Button className="relative z-20 hover:bg-brand-blue-900 p-2 rounded text-brand-gray-400 text-2xl bg-brand-teal-500 bg-opacity-50 transition-all duration-300">
+                  <RiCloseFill />
+                </Menu.Button>
               ) : (
-                <Menu.Button className="relative z-20">Abrir</Menu.Button>
+                <Menu.Button className="relative z-20 bg-brand-blue-900 p-2 rounded text-brand-gray-400 text-2xl hover:bg-brand-teal-500 hover:bg-opacity-50 transition-all duration-300">
+                  <RiMenuFill />
+                </Menu.Button>
               )}
 
               <Transition
-                as={React.Fragment}
+                as={Fragment}
                 enter="transition duration-200 ease-in"
                 enterFrom="transform translate-x-[100%] opacity-0"
                 enterTo="transform translate-x-0 opacity-100"
@@ -79,7 +114,7 @@ export function Header() {
             </>
           )}
         </Menu>
-      </div>
-    </header>
+      </motion.div>
+    </motion.header>
   )
 }

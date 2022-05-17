@@ -13,7 +13,7 @@ export function Title({ title, adicionalClass }: TitleProps) {
         {title}
       </h2>
 
-      <div className="hidden xs:block h-[1px] w-2/3 bg-brand-gray-700 opacity-50" />
+      <div className="hidden xs:block h-[1px] w-2/5 bg-brand-gray-700 opacity-40" />
     </div>
   )
 }
