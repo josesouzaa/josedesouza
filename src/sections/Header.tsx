@@ -35,7 +35,7 @@ const itemVariant = {
   visible: {
     opacity: 1,
     y: 0,
-    trasition: {
+    transition: {
       duration: 0.5
     }
   }
