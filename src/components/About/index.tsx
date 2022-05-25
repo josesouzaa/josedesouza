@@ -1,5 +1,5 @@
-import { Section } from '../components/Section'
-import { Title } from '../components/Title'
+import { Section } from '../Section'
+import { Title } from '../Title'
 
 export function About() {
   return (

@@ -1,4 +1,4 @@
-import { Title } from '../components/Title'
+import { Title } from '../Title'
 
 import {
   RiUserLocationLine,
@@ -7,7 +7,7 @@ import {
   RiLinkedinBoxFill,
   RiWhatsappFill
 } from 'react-icons/ri'
-import { Section } from '../components/Section'
+import { Section } from '../Section'
 
 export function Contact() {
   return (

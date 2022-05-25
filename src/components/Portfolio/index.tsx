@@ -1,9 +1,9 @@
-import { Title } from '../components/Title'
+import { Title } from '../Title'
 
-import { portfolioList } from '../pages/_api'
+import { portfolioList } from '../../pages/_api'
 
 import { RiExternalLinkLine, RiGithubLine } from 'react-icons/ri'
-import { Section } from '../components/Section'
+import { Section } from '../Section'
 
 const techs = [
   'https://img.shields.io/badge/-HTML-05122A?style=flat&logo=HTML5',

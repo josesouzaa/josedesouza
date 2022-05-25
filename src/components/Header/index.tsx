@@ -7,7 +7,7 @@ import { Menu, Transition } from '@headlessui/react'
 
 import { RiMenuFill, RiCloseFill } from 'react-icons/ri'
 
-import logo from '../../assets/logo.svg'
+import logo from '../../../assets/logo.svg'
 import { Fragment } from 'react'
 
 const menuItens = [

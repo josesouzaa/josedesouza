@@ -1,10 +1,10 @@
-import { Title } from '../components/Title'
+import { Title } from '../Title'
 
-import { works } from '../pages/_api'
+import { works } from '../../pages/_api'
 
 import { Tab } from '@headlessui/react'
 import { Fragment } from 'react'
-import { Section } from '../components/Section'
+import { Section } from '../Section'
 
 export function Work() {
   return (

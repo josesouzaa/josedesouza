@@ -1,9 +1,9 @@
 import { Disclosure } from '@headlessui/react'
 
-import { educations } from '../pages/_api'
+import { educations } from '../../pages/_api'
 
-import { Title } from '../components/Title'
-import { Section } from '../components/Section'
+import { Title } from '../Title'
+import { Section } from '../Section'
 
 export function Education() {
   return (
