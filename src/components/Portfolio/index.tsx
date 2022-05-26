@@ -15,7 +15,7 @@ export function Portfolio({ projects }: PortfolioProps) {
     <Section id="portfolio">
       <Title title="Portfólio" />
 
-      <div className="flex flex-col gap-8 w-full xs:w-5/6 sm:w-9/12 mx-auto">
+      <div className="flex flex-col gap-8 w-full xs:w-11/12 sm:w-10/12 mx-auto rounded">
         {projects.map(
           (project) =>
             project.preview && (
