@@ -13,7 +13,27 @@ import Prismic from '@prismicio/client'
 import { getPrismicClient } from '../services/prismic'
 import { RichText } from 'prismic-dom'
 
-const Home: NextPage = () => {
+interface Tec {
+  tecnologia: {
+    link_type: string
+    url: string
+  }
+}
+
+export interface Project {
+  titulo: string
+  resumo: string
+  github: string
+  firstpage: boolean
+  preview: string
+  tecnologias: string[]
+}
+
+interface HomeProps {
+  projects: Project[]
+}
+
+export default function Home({ projects }: HomeProps) {
   return (
     <>
       <Header />
@@ -21,14 +41,12 @@ const Home: NextPage = () => {
       <About />
       <Work />
       <Education />
-      <Portfolio />
+      <Portfolio projects={projects} />
       <Contact />
       <Footer />
     </>
   )
 }
-
-export default Home
 
 export const getStaticProps: GetStaticProps = async () => {
   const client = getPrismicClient()
@@ -42,14 +60,25 @@ export const getStaticProps: GetStaticProps = async () => {
   ])
 
   const works = worksRaw.results.map((work) => ({
-    cargo: RichText.asText(work.data.cargo),
-    empresa: RichText.asText(work.data.empresa),
-    periodo: RichText.asText(work.data.periodo),
-    resumo: RichText.asText(work.data.resumo),
+    cargo: work.data.cargo,
+    empresa: work.data.empresa,
+    periodo: work.data.periodo,
+    resumo: work.data.resumo,
     img: work.data.imagem.url
   }))
 
+  const projects = projectsRaw.results.map((project) => ({
+    titulo: RichText.asText(project.data.title),
+    resumo: RichText.asText(project.data.resumo),
+    github: project.data.github.url,
+    firstpage: project.data.firstpage,
+    preview: project.data.preview.url,
+    tecnologias: project.data.tecnologias.map((tec: Tec) => tec.tecnologia.url)
+  }))
+
   return {
-    props: {}
+    props: {
+      projects
+    }
   }
 }
